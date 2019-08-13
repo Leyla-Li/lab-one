@@ -15,25 +15,9 @@ let validator = module.exports = {};
 // Ideas for rules : Positive values / Negative values / odd values / even values /
 // specific values / bigger than five /
 
-// if you need to setup more complex rules, remember that rules can be an object too
-validator.isValid = (input, rules) => {
-  // return true;
-  if(rules === 'object') {
-    // Vinicio - how do I check if the type of the input is an object
-  }
-
-  if(rules === 'object') {
-    // I'm checking if the value is less than zero, because the user wants to
-    // check if the value is negative
-    return input < 0;
-  }
-
-  if(rules === 'one') {
-    // I'm checking if the value is less than zero, because the user wants to
-    // check if the value is negative
-    return input === 1;
-  }
-
+// if the person object has hair property
+validator.hasProperty = (person,property) => {
+    return person.hasOwnProperty(property);
 };
 
 /**
@@ -45,3 +29,49 @@ validator.isString = (input) => {
   return typeof input === 'string';
 };
 
+/**
+ * Is this a number?
+ * @param input
+ * @returns {boolean}
+ */
+
+ validator.isNumber = (input) =>{
+     return typeof input === 'number';
+ }
+
+
+ /**
+ * Is this a object?
+ * @param input
+ * @returns {boolean}
+ */
+
+validator.isObject = (input) =>{
+    return typeof input === 'object';
+}
+
+/**
+ * Is this a array?
+ * @param input
+ * @returns {boolean}
+ */
+
+validator.isArray = (input) =>{
+    return Array.isArray(input);
+}
+
+/**
+ * Is this a negative number?
+ * @param input
+ * @returns {boolean}
+ */
+
+validator.notZero = (num,check) =>{
+    if(check === 'negative' && num < 0){
+        return true;
+    }else if(check === 'positive' && num > 0){
+        return true;
+    }else{
+        return false;
+    }
+}
