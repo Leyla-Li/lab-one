@@ -6,13 +6,17 @@ describe('validator module performs basic validation of', () => {
 
   // TODO: Make this series of tests less repetitive ... DRY it out
 
+  let str = 'yes';
+  let num = 1;
+  let arr = ['a'];
+  let obj = {x:'y'};
+  let func = () => {};
+  let bool = false;
+  let negativeNum = -1;
+  let positiveNum = 1;
+  let zero = 0;  
+
   it('strings', () => {
-    let str = 'yes';
-    let num = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
     expect(validator.isString(str)).toBeTruthy();
     expect(validator.isString(num)).toBeFalsy();
     expect(validator.isString(arr)).toBeFalsy();
@@ -22,13 +26,6 @@ describe('validator module performs basic validation of', () => {
   });
 
   it('numbers', () => {
-    let negativeNum = -1;
-    let positiveNum = 1;
-    let zero = 0;  
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
     expect(validator.isNumber(negativeNum)).toBeTruthy();
     expect(validator.isNumber(positiveNum)).toBeTruthy();
     expect(validator.isNumber(zero)).toBeTruthy();
@@ -39,13 +36,6 @@ describe('validator module performs basic validation of', () => {
   });
 
   it('arrays', () => {
-    let negativeNum = -1;
-    let positiveNum = 1;
-    let zero = 0;  
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
     expect(validator.isArray(negativeNum)).toBeFalsy();
     expect(validator.isArray(positiveNum)).toBeFalsy();
     expect(validator.isArray(zero)).toBeFalsy();
@@ -56,12 +46,6 @@ describe('validator module performs basic validation of', () => {
   });
 
   it('objects', () => {
-    let negativeNum = -1;
-    let positiveNum = 1;
-    let arr = ['a'];
-    let obj = {x:'y'};
-    let func = () => {};
-    let bool = false;
     expect(validator.isObject(negativeNum)).toBeFalsy();
     expect(validator.isObject(positiveNum)).toBeFalsy();
     expect(validator.isObject(arr)).toBeTruthy();
@@ -71,9 +55,6 @@ describe('validator module performs basic validation of', () => {
   });
 
   it('numeric rule', () =>{
-    let negativeNum = -1;
-    let positiveNum = 1;
-    let zero = 0;
     let rule1 = 'negative';
     let rule2 = 'positive';
     let rule3 = 'zero'
